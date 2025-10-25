@@ -526,10 +526,10 @@ def training(args):
                     if ncc_weight > 0:
                         with torch.no_grad():
                             '''debug'''
-                            if iteration % 200 == 0:
-                                sample_num = 1e9
-                                d_mask_real = d_mask.clone()
-                                d_mask = torch.ones_like(d_mask)
+                            # if iteration % 200 == 0:
+                            #     sample_num = 1e9
+                            #     d_mask_real = d_mask.clone()
+                            #     d_mask = torch.ones_like(d_mask)
                             
                             ## sample mask
                             d_mask = d_mask.reshape(-1)
@@ -562,14 +562,12 @@ def training(args):
                         render_normal = render_pkg["normal"].clone()
                         render_normal[0:3] = render_normal[0:3] * -1
                         cam_normal = (render_normal.reshape(3,-1).permute(1,0) @ cam.world_view_transform[:3,:3]).permute(1,0).reshape(render_normal.shape)
-                        # cam_normal = (cam.world_view_transform[:3, :3] @ render_normal.reshape(3, -1))
                         
                         
                         ref_local_n_temp = cam_normal.reshape(3,-1).permute(1,0)
                         ref_local_n_temp = ref_local_n_temp / ref_local_n_temp.norm(dim=-1, keepdim=True).clamp(min=1e-3).detach()
                         ref_local_n = ref_local_n_temp.reshape(-1,3)[valid_indices]
 
-                        # ref_local_d = render_pkg['depth'][0].squeeze().clamp(min=1e-3)
                         rays_d = cam.get_rays()
                         ref_local_d = render_depth.view(-1) * ((ref_local_n_temp * rays_d.reshape(-1,3)).sum(-1).abs())
                         ref_local_d = ref_local_d.reshape(*render_depth.shape).clamp(min=1e-6)

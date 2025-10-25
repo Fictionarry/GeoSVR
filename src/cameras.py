@@ -242,7 +242,7 @@ class Camera(CameraBase):
         if not hasattr(self, '_rays_cache'):
             W, H = int(self.image_width / scale), int(self.image_height / scale)
             ix, iy = torch.meshgrid(
-                torch.arange(W, device='cuda'),  # 直接在 GPU 上创建
+                torch.arange(W, device='cuda'),
                 torch.arange(H, device='cuda'),
                 indexing='xy'
             )
@@ -251,7 +251,7 @@ class Camera(CameraBase):
                         (iy-self.Cy/scale) / self.Fy * scale,
                         torch.ones_like(ix)], -1).float().cpu()
             
-            self._rays_cache = rays_d  # 缓存结果
+            self._rays_cache = rays_d
         return self._rays_cache.cuda()
     
     def get_ncc_gt(self):

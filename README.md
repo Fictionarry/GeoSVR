@@ -159,7 +159,7 @@ DTU_2dgs                    (2DGS pre-processed training set)
 Following the below examples to reproduce the evaluation on the datasets.
 
 ```bash
-# We provide three simple workload balance evaluation scripts.
+# We provide three evaluation scripts with simple workload balance.
 # You may manually select the GPU, and use it as:
 # bash scripts/<dataset>_run.sh <output_dir> <max_subsets> <selected_subset> <other_args...>
 
@@ -174,6 +174,7 @@ python scripts/tnt_stat.py output/tnt
 python scripts/mipnerf360_stat.py output/360
 ```
 - The produced mesh results are provided on [Hugging Face](https://huggingface.co/Fictionary/GeoSVR).
+- Ensure about 40GB of RAM is available to support mesh extractions.
 
 **Note:** The evaluation scripts have a non-trivial influence on mesh quality measurement. In our project, we use the original [Tanks and Temples toolbox](https://github.com/isl-org/TanksAndTemples/tree/master/python_toolbox/evaluation), and [DTU evaluation script](https://github.com/hbb1/2d-gaussian-splatting/tree/main/scripts/eval_dtu) based on [DTUeval-python](https://github.com/jzhangbs/DTUeval-python). 
 
