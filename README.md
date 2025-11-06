@@ -103,6 +103,15 @@ For the other unlisted hyperparameter, please refer to [SVRaster](https://github
 python render.py $OUTPUT_PATH --eval_fps
 ```
 
+### Extracting Mesh
+
+```bash
+python mesh_extract/tsdf_mesh.py $OUTPUT_PATH
+```
+- `--voxel_size 0.002` to determine the resolution of the mesh. Note that a smaller voxel size requires more costs in RAM and storage.
+- `--sdf_trunc_scale 4.0` to control the truncated TSDF multiplier based on voxel size. Increase if the mesh is unideally incomplete and decrease when inaccurate vertices remain.
+- `--max_depth 5.0` to set the extraction bound of the scene. An example is in `mesh_extract/tsdf_mesh_360.py` to adaptively estimate the bound according to the training cameras.
+
 ### Rendering Views
 
 - Rendering full training views with visualizations:
