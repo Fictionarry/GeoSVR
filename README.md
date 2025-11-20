@@ -126,14 +126,14 @@ We provide experiment scripts and configurations in `scripts/` and `cfg/` to rep
 
 ### Download Datasets
 
-We use the preprocessed DTU dataset from [2DGS](https://github.com/hbb1/2d-gaussian-splatting?tab=readme-ov-file#quick-examples), the official Tanks and Temples dataset, and the official Mip-NeRF 360 dataset. Here is the instructions for each.
+We use the preprocessed DTU dataset from [2DGS](https://github.com/hbb1/2d-gaussian-splatting?tab=readme-ov-file#quick-examples), the official Tanks and Temples dataset, and the official Mip-NeRF 360 dataset. Here are the instructions for each.
 
 - [DTU](https://drive.google.com/file/d/1ODiOu72tAGPTnhVn0cFZ9MvymDgcoHxQ/view?usp=drive_link) dataset (2DGS pre-processed)
   - To get the ground-truths, you need also to download the [Points.zip](http://roboimagedata2.compute.dtu.dk/data/MVS/Points.zip) and [SampleSet.zip](http://roboimagedata2.compute.dtu.dk/data/MVS/SampleSet.zip).
 - [Tanks and Temples](https://www.tanksandtemples.org/download/) dataset (Official)
   - Ground truth, image set, camera poses, alignment, and cropfiles are required.
-  - Following Neuralangelo [instructions](https://github.com/NVlabs/neuralangelo/blob/main/DATA_PROCESSING.md#tanks-and-temples-dataset) to process the scenes with COLMAP.
-  - Due to substantial inaccurate estimation existing, we recommend using the 2DGS pre-processed `Courthouse` scene from [here](https://huggingface.co/datasets/ZehaoYu/gaussian-opacity-fields/tree/main) to slightly relieve this problem.
+  - Following Neuralangelo [instructions](https://github.com/NVlabs/neuralangelo/blob/main/DATA_PROCESSING.md#tanks-and-temples-dataset) while removing [L230](https://github.com/NVlabs/neuralangelo/blob/94390b64683c067c620d9e075224ccfe582647d0/projects/neuralangelo/scripts/convert_tnt_to_json.py#L230) to process the scenes with COLMAP.
+  - Due to substantial inaccurate estimation existing, we recommend using the 2DGS pre-processed `Courthouse` scene from [here](https://huggingface.co/datasets/ZehaoYu/gaussian-opacity-fields/tree/main) as a start to slightly relieve this problem.
 - [Mip-NeRF 360](https://jonbarron.info/mipnerf360/) dataset (Official)
 
 The default dataset organizations under `data/` are like this:
