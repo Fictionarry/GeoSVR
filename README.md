@@ -147,6 +147,7 @@ TnT
 │  ├─ Barn_trans.txt        (colmap-to-ground-truth transformation)
 │  ├─ database.db           (colmap generated database)
 │  ├─ transforms.json       (generated)
+│  ├─ sparse/               (formatted cameras)
 │  ├─ images/               (processed images)
 │  └─ images_raw            (raw input images downloaded from Tanks and Temples website)
 │     ├─ 000001.png
