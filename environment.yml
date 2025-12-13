@@ -13,6 +13,7 @@ channels:
   - defaults
 dependencies:
   - python=3.9
+  - pip=24.2
   - pytorch==1.13.1
   - torchvision==0.14.1
   - torchaudio==0.13.1
