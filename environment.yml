@@ -43,12 +43,12 @@ dependencies:
 
       - lpips
       - pytorch-msssim
-      - git+https://github.com/rahul-goel/fused-ssim/
+      - git+https://github.com/rahul-goel/fused-ssim.git@3006269823fc28110ba44686a172cbd59ec01bc3
 
 
 ### Below are the pip requirements.txt.
 
-# numpy
+# numpy==1.26.3
 # einops
 # opencv-python
 
@@ -71,4 +71,4 @@ dependencies:
 
 # lpips
 # pytorch-msssim
-# git+https://github.com/rahul-goel/fused-ssim/
+# git+https://github.com/rahul-goel/fused-ssim.git@3006269823fc28110ba44686a172cbd59ec01bc3
